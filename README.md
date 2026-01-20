@@ -1,6 +1,6 @@
-# 专家画像 Dashboard
+# Dashboard
 
-一个轻量级的专家画像分析工具。上传 `talent_ids.txt` 文件，自动生成专家画像 Dashboard。
+一个轻量级的专家画像分析工具。上传 `talent_ids.txt` 文件，自动生成Dashboard。
 
 ## 功能特性
 
