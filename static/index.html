@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- ========================================
+             上传区域
+             ======================================== -->
+        <section id="upload-section" class="upload-section">
+            <div class="upload-card">
+                <h1>专家画像</h1>
+                
+                <div id="upload-zone" class="upload-zone">
+                    <div class="icon">[ + ]</div>
+                    <p>点击或拖拽文件到此处上传</p>
+                    <p class="hint">支持 .txt 文件，每行一个 talent_id</p>
+                </div>
+                
+                <input type="file" id="file-input" accept=".txt">
+                
+                <button id="upload-btn" class="upload-btn">
+                    <span>选择文件上传</span>
+                </button>
+                
+                <div id="upload-status" class="upload-status"></div>
+            </div>
+        </section>
+        
+        <!-- ========================================
+             Dashboard 区域
+             ======================================== -->
+        <section id="dashboard-section" class="dashboard-section">
+            <!-- 头部 -->
+            <header class="dashboard-header">
+                <h1>专家画像分析</h1>
+                <div class="meta">
+                    <span class="badge primary">
+                        共 <strong id="expert-count">0</strong> 位专家
+                    </span>
+                    <button id="reset-btn" class="reset-btn">
+                        <span>重新上传</span>
+                    </button>
+                </div>
+            </header>
+            
+            <!-- KPI 卡片 -->
+            <div class="kpi-row">
+                <div class="kpi-card green">
+                    <div class="label">专家总数</div>
+                    <div class="value" id="kpi-total">0</div>
+                    <div class="sub-value">活跃专家资源库</div>
+                </div>
+                <div class="kpi-card blue">
+                    <div class="label">高学历占比</div>
+                    <div class="value" id="kpi-masters-pct">0%</div>
+                    <div class="sub-value">硕博共 <span id="kpi-masters-count">0</span> 人</div>
+                </div>
+                <div class="kpi-card green">
+                    <div class="label">名校背景</div>
+                    <div class="value" id="kpi-elite-pct">0%</div>
+                    <div class="sub-value">985/211/海外 <span id="kpi-elite-count">0</span> 人</div>
+                </div>
+                <div class="kpi-card blue">
+                    <div class="label">大厂经历</div>
+                    <div class="value" id="kpi-bigco-pct">0%</div>
+                    <div class="sub-value">头部企业背景 <span id="kpi-bigco-count">0</span> 人</div>
+                </div>
+            </div>
+            
+            <!-- 第一行图表：概览 -->
+            <div class="charts-row">
+                <div class="chart-card">
+                    <h3><span class="dot green"></span>学校层级分布</h3>
+                    <div id="chart-school-tier" class="chart-container"></div>
+                </div>
+                <div class="chart-card">
+                    <h3><span class="dot blue"></span>学历分布</h3>
+                    <div id="chart-degree" class="chart-container"></div>
+                </div>
+            </div>
+            
+            <!-- 第二行图表：能力 -->
+            <div class="charts-row">
+                <div class="chart-card">
+                    <h3><span class="dot green"></span>技术栈分布 TOP 10</h3>
+                    <div id="chart-tech-stack" class="chart-container tall"></div>
+                </div>
+                <div class="chart-card">
+                    <h3><span class="dot blue"></span>任务类型分布</h3>
+                    <div id="chart-task-type" class="chart-container tall"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <script src="/static/js/dashboard.js"></script>
+</body>
+</html>

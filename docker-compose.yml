@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  expert-dashboard:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./uploads:/app/uploads
+    environment:
+      - TZ=Asia/Shanghai
+    restart: unless-stopped
